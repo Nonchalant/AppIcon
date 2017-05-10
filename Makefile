@@ -14,4 +14,5 @@ xcode:
 	swift package generate-xcodeproj
 
 install: build
+	mkdir -p "$(PREFIX)/bin"
 	cp -f "$(TEMPORARY_FOLDER)/AppIcon" "$(PREFIX)/bin/appicon"
