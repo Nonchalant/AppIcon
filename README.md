@@ -1,7 +1,9 @@
 # AppIcon
 
 ![platforms](https://img.shields.io/badge/platforms-iOS-333333.svg)
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mono0926/NativePopup/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Nonchalant/AppIcon/master/LICENSE.md)
+[![GitHub release](https://img.shields.io/github/release/Nonchalant/AppIcon.svg)](https://github.com/Nonchalant/AppIcon/releases)
+![Xcode](https://img.shields.io/badge/Xcode-8.3-brightgreen.svg)
 ![Swift](https://img.shields.io/badge/Swift-3.1-brightgreen.svg)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
@@ -20,11 +22,17 @@ AppIcon.appiconset
 └── Icon-App-60.0x60.0@3x.png
 ```
 
+## Demo
+
+![](Document/Images/appicon.gif)
+
 ## Installation
 
 ### Homebrew
 
-Not supported yet.
+```
+$ brew install Nonchalant/appicon/appicon
+```
 
 ### Manual
 
@@ -67,13 +75,9 @@ $ cd AppIcon
 $ make xcode
 ```
 
-## Contact
+## Author
 
-Found a bug or missing something? Let me know, or even better, file a pull request!
-
-Takeshi Ihara
-
-- afrontier829@gmail.com
+Takeshi Ihara <afrontier829@gmail.com>
 
 ## License
 
