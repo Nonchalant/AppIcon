@@ -7,6 +7,8 @@
 /.build
 /Packages
 /*.xcodeproj
+/*.appiconset
+/*.tar.gz
 
 ### Fastlane
 
