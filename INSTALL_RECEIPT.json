@@ -1,0 +1,11 @@
+{
+    "HEAD": null,
+    "built_as_bottle": true,
+    "compiler": "clang",
+    "poured_from_bottle": false,
+    "stdlib": null,
+    "tapped_from": "nonchalant/appicon",
+    "time": 0,
+    "unused_options": [],
+    "used_options": []
+}
