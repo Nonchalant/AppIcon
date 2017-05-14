@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct Constants {
-    static let appName = "Icon-App"
-}
-
 enum Scale: String {
     case single = "1x"
     case twice = "2x"
@@ -27,8 +23,8 @@ struct AppIcon {
         self.scale = scale
     }
 
-    var name: String {
-        return "\(Constants.appName)-\(baseSize)x\(baseSize)@\(scale.rawValue).png"
+    func name(iconName: String) -> String {
+        return "\(iconName)-\(baseSize)x\(baseSize)@\(scale.rawValue).png"
     }
 
     var size: Float {
