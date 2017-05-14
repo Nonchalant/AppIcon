@@ -66,18 +66,34 @@ Default: `AppIcon`
 
 ## Develop
 
+### Install Gems
+
+```
+$ bundle install --path=vendor/bundle
+```
+
 ### Generate Xcode project
 
 ```
-$ cd AppIcon
 $ swift package generate-xcodeproj
 ```
 
 or
 
 ```
-$ cd AppIcon
 $ make xcode
+```
+
+### Runs release build
+
+```
+$ bundle exec fastlane build
+```
+
+### Runs tests
+
+```
+$ bundle exec fastlane test
 ```
 
 ## Author
