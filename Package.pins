@@ -4,7 +4,7 @@
     {
       "package": "Commander",
       "reason": null,
-      "repositoryURL": "git@github.com:kylef/Commander.git",
+      "repositoryURL": "https://github.com/kylef/Commander",
       "version": "0.6.1"
     },
     {
