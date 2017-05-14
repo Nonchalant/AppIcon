@@ -1,6 +1,6 @@
 //
 //  Extractor.swift
-//  AppIconExtractor
+//  AppIcon
 //
 //  Created by Takeshi Ihara on 2017/05/10.
 //

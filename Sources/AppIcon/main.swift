@@ -1,12 +1,13 @@
 //
 //  main.swift
-//  AppIconExtractor
+//  AppIcon
 //
 //  Created by Takeshi Ihara on 2017/05/10.
 //
 //
 
 import Commander
+import AppIconCore
 
 let main = command(Argument<String>("base image (1024x1024)"), Option("output", "AppIcon", flag: "s")) { input, output in
     guard input.hasSuffix(".png") else {

@@ -1,6 +1,6 @@
 //
 //  JSONExtractor.swift
-//  AppIconExtractor
+//  AppIcon
 //
 //  Created by Takeshi Ihara on 2017/05/10.
 //
@@ -9,11 +9,11 @@
 import Foundation
 import SwiftyJSON
 
-struct JSONExtractor: Extractor {
-    typealias T = [AppIcons]
-    typealias U = String
+public struct JSONExtractor: Extractor {
+    public typealias T = [AppIcons]
+    public typealias U = String
 
-    static func extract(base: T, output: U) throws {
+    public static func extract(base: T, output: U) throws {
         do {
             try Command.createJSON(json: generate(base: base), output: "\(output)/Contents.json").execute()
         } catch {
