@@ -1,6 +1,6 @@
 //
 //  AppIcon.swift
-//  AppIconExtractor
+//  AppIcon
 //
 //  Created by Takeshi Ihara on 2017/05/10.
 //
@@ -71,7 +71,7 @@ struct AppIconSet {
     }
 }
 
-enum AppIcons: Float {
+public enum AppIcons: Float {
     case notification = 20.0
     case settings = 29.0
     case spotlight = 40.0
@@ -81,7 +81,7 @@ enum AppIcons: Float {
         return AppIconSet(with: AppIcon(baseSize: self.rawValue))
     }
 
-    static var all: [AppIcons] {
+    public static var all: [AppIcons] {
         return [.notification, .settings, .spotlight, .app]
     }
 }

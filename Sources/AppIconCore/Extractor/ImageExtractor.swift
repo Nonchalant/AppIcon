@@ -1,6 +1,6 @@
 //
 //  ImageExtractor.swift
-//  AppIconExtractor
+//  AppIcon
 //
 //  Created by Takeshi Ihara on 2017/05/10.
 //
@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct ImageExtractor: Extractor {
-    typealias T = String
-    typealias U = String
+public struct ImageExtractor: Extractor {
+    public typealias T = String
+    public typealias U = String
 
-    static func extract(base: T, output: U) throws {
+    public static func extract(base: T, output: U) throws {
         do {
             try Command.createDirectory(output: output).execute()
 
