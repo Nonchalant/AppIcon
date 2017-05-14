@@ -13,14 +13,14 @@
 ```
 AppIcon.appiconset
 ├── Contents.json
-├── Icon-App-20.0x20.0@2x.png
-├── Icon-App-20.0x20.0@3x.png
-├── Icon-App-29.0x29.0@2x.png
-├── Icon-App-29.0x29.0@3x.png
-├── Icon-App-40.0x40.0@2x.png
-├── Icon-App-40.0x40.0@3x.png
-├── Icon-App-60.0x60.0@2x.png
-└── Icon-App-60.0x60.0@3x.png
+├── AppIcon-20.0x20.0@2x.png
+├── AppIcon-20.0x20.0@3x.png
+├── AppIcon-29.0x29.0@2x.png
+├── AppIcon-29.0x29.0@3x.png
+├── AppIcon-40.0x40.0@2x.png
+├── AppIcon-40.0x40.0@3x.png
+├── AppIcon-60.0x60.0@2x.png
+└── AppIcon-60.0x60.0@3x.png
 ```
 
 ## Demo
@@ -56,7 +56,11 @@ $ appicon iTunesIcon-1024x1024.png
 
 You can see options by `appicon --help`.
 
-#### --output
+#### --icon-name
+
+Default: `AppIcon`
+
+#### --output-path
 
 Default: `AppIcon`
 
