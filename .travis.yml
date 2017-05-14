@@ -1,0 +1,8 @@
+language: swift
+osx_image: xcode8.3
+
+install:
+  - make build
+
+script:
+  - make test
