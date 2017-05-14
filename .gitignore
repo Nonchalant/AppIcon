@@ -1,5 +1,18 @@
+### OSX ###
+
 .DS_Store
+
+### Swift ###
+
 /.build
 /Packages
 /*.xcodeproj
 /*.appiconset
+/*.tar.gz
+
+### Fastlane
+
+/.bundle
+/fastlane/report.xml
+/vendor/bundle
+

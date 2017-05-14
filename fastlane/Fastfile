@@ -1,0 +1,15 @@
+fastlane_version "2.30.2"
+
+desc "Runs release build"
+lane :build do
+  Dir.chdir("..") do
+    sh "make build"
+  end
+end
+
+desc "Runs all the tests"
+lane :test do
+  Dir.chdir("..") do
+    sh "make test"
+  end
+end

@@ -1,5 +1,6 @@
 # AppIcon
 
+[![Build Status](https://travis-ci.org/Nonchalant/AppIcon.svg?branch=master)](https://travis-ci.org/Nonchalant/AppIcon)
 ![platforms](https://img.shields.io/badge/platforms-iOS-333333.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Nonchalant/AppIcon/master/LICENSE.md)
 [![GitHub release](https://img.shields.io/github/release/Nonchalant/AppIcon.svg)](https://github.com/Nonchalant/AppIcon/releases)
@@ -12,14 +13,14 @@
 ```
 AppIcon.appiconset
 ├── Contents.json
-├── Icon-App-20.0x20.0@2x.png
-├── Icon-App-20.0x20.0@3x.png
-├── Icon-App-29.0x29.0@2x.png
-├── Icon-App-29.0x29.0@3x.png
-├── Icon-App-40.0x40.0@2x.png
-├── Icon-App-40.0x40.0@3x.png
-├── Icon-App-60.0x60.0@2x.png
-└── Icon-App-60.0x60.0@3x.png
+├── AppIcon-20.0x20.0@2x.png
+├── AppIcon-20.0x20.0@3x.png
+├── AppIcon-29.0x29.0@2x.png
+├── AppIcon-29.0x29.0@3x.png
+├── AppIcon-40.0x40.0@2x.png
+├── AppIcon-40.0x40.0@3x.png
+├── AppIcon-60.0x60.0@2x.png
+└── AppIcon-60.0x60.0@3x.png
 ```
 
 ## Demo
@@ -55,24 +56,44 @@ $ appicon iTunesIcon-1024x1024.png
 
 You can see options by `appicon --help`.
 
-#### --output
+#### --icon-name
+
+Default: `AppIcon`
+
+#### --output-path
 
 Default: `AppIcon`
 
 ## Develop
 
+### Install Gems
+
+```
+$ bundle install --path=vendor/bundle
+```
+
 ### Generate Xcode project
 
 ```
-$ cd AppIcon
 $ swift package generate-xcodeproj
 ```
 
 or
 
 ```
-$ cd AppIcon
 $ make xcode
+```
+
+### Runs release build
+
+```
+$ bundle exec fastlane build
+```
+
+### Runs tests
+
+```
+$ bundle exec fastlane test
 ```
 
 ## Author
