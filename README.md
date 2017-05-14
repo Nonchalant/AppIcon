@@ -1,5 +1,6 @@
 # AppIcon
 
+[![Build Status](https://travis-ci.org/Nonchalant/AppIcon.svg?branch=master)](https://travis-ci.org/Nonchalant/AppIcon)
 ![platforms](https://img.shields.io/badge/platforms-iOS-333333.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Nonchalant/AppIcon/master/LICENSE.md)
 [![GitHub release](https://img.shields.io/github/release/Nonchalant/AppIcon.svg)](https://github.com/Nonchalant/AppIcon/releases)
