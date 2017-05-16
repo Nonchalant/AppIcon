@@ -1,9 +1,15 @@
 language: swift
 osx_image: xcode8.3
 
+cache:
+  - bundler
+
 install:
   - bundle install --path=vendor/bundle
-  - bundle exec fastlane build
+  - bundle exec fastlane mac build
+
+before_script:
+  - bundle exec fastlane mac check_pull_request
 
 script:
-  - bundle exec fastlane test
+  - bundle exec fastlane mac test
