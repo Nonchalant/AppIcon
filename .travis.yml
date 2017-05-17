@@ -8,8 +8,8 @@ install:
   - bundle install --path=vendor/bundle
   - bundle exec fastlane mac build
 
-before_script:
-  - bundle exec fastlane mac check_pull_request
+# before_script:
+#   - bundle exec fastlane mac check_pull_request
 
 script:
   - bundle exec fastlane mac test
