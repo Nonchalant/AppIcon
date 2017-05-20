@@ -9,23 +9,24 @@
 import Commander
 import AppIconCore
 
-let main = command(Argument<String>("base image (1024x1024.png)"),
-                   Option("icon-name", "AppIcon", flag: "s"),
-                   Option("output-path", "AppIcon", flag: "s")) { input, iconName, path in
-    guard input.hasSuffix(".png") else {
+let main = command(Argument<String>("base image (1024x1024.png)", description: "The name of base image"),
+                   Option("icon-name", "AppIcon", description: "The name of generated icon name"),
+                   Option("output-path", "AppIcon", description: "The name of generated appiconset name"),
+                   Flag("ipad", description: "Whether or not to generate ipad icon")) { base, iconName, path, ipad in
+    guard base.hasSuffix(".png") else {
         throw ArgumentError.missingValue(argument: "base image (1024x1024.png)")
     }
 
     let outputPath = "\(path).appiconset"
 
     do {
-        try ImageExtractor.extract(base: input, output: (iconName, outputPath))
+        try ImageExtractor.extract(input: (base, ipad), output: (iconName, outputPath))
     } catch {
         print("Image Extraction Error is occured 😱")
     }
 
     do {
-        try JSONExtractor.extract(base: AppIcons.all, output: (iconName, outputPath))
+        try JSONExtractor.extract(input: ipad, output: (iconName, outputPath))
     } catch {
         print("JSON Extraction Error is occured 😱")
     }

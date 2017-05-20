@@ -44,26 +44,22 @@ struct AppIcon {
 }
 
 struct AppIconSet {
-    let icon: AppIcon
+    let baseSize: Float
+    let ipad: Bool
+    let scales: [Scale]
 
-    var single: AppIcon {
-        return AppIcon(baseSize: icon.size)
-    }
-
-    var twice: AppIcon {
-        return AppIcon(baseSize: icon.size, scale: .twice)
-    }
-
-    var triple: AppIcon {
-        return AppIcon(baseSize: icon.size, scale: .triple)
+    var idiom: String {
+        return ipad ? "ipad" : "iphone"
     }
 
     var all: [AppIcon] {
-        return [twice, triple]
+        return scales.map { AppIcon(baseSize: baseSize, scale: $0) }
     }
 
-    init(with icon: AppIcon) {
-        self.icon = icon
+    init(baseSize: Float, ipad: Bool = false, scales: [Scale]? = nil) {
+        self.baseSize = baseSize
+        self.ipad = ipad
+        self.scales = scales ?? (ipad ? [.single, .twice] : [.twice, .triple])
     }
 }
 
@@ -72,12 +68,23 @@ public enum AppIcons: Float {
     case settings = 29.0
     case spotlight = 40.0
     case app = 60.0
+    case iPadApp = 76.0
+    case iPadProApp = 83.5
 
-    var set: AppIconSet {
-        return AppIconSet(with: AppIcon(baseSize: self.rawValue))
+    static func all(ipad: Bool = false) -> [AppIconSet] {
+        return iphones.map { $0.set() } + (ipad ? ipads.map { $0.set(ipad: ipad) } : [])
     }
 
-    public static var all: [AppIcons] {
+    private func set(ipad: Bool = false) -> AppIconSet {
+        let scales = (self == .iPadProApp) ? [Scale.twice] : nil
+        return AppIconSet(baseSize: self.rawValue, ipad: ipad, scales: scales)
+    }
+
+    private static var iphones: [AppIcons] {
         return [.notification, .settings, .spotlight, .app]
+    }
+
+    private static var ipads: [AppIcons] {
+        return [.notification, .settings, .spotlight, .iPadApp, .iPadProApp]
     }
 }

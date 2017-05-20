@@ -11,5 +11,5 @@ import Foundation
 protocol Extractor {
     associatedtype T
     associatedtype U
-    static func extract(base: T, output: U) throws
+    static func extract(input: T, output: U) throws
 }
