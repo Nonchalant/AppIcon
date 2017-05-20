@@ -64,6 +64,10 @@ Default: `AppIcon`
 
 Default: `AppIcon`
 
+#### --ipad
+
+Default: false
+
 ## Develop
 
 ### Install Gems
