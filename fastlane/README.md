@@ -29,14 +29,20 @@ xcode-select --install
 </table>
 
 # Available Actions
-### build
+## Mac
+### mac check_pull_request
 ```
-fastlane build
+fastlane mac check_pull_request
+```
+Runs danger
+### mac build
+```
+fastlane mac build
 ```
 Runs release build
-### test
+### mac test
 ```
-fastlane test
+fastlane mac test
 ```
 Runs all the tests
 
