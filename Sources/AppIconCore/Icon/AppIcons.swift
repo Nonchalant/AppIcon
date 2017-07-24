@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum Scale: String {
-    case single = "1x"
-    case twice = "2x"
-    case triple = "3x"
-}
-
 struct AppIcon {
     let baseSize: Float
     let scale: Scale
@@ -45,46 +39,52 @@ struct AppIcon {
 
 struct AppIconSet {
     let baseSize: Float
-    let ipad: Bool
+    let platform: Platform
     let scales: [Scale]
 
     var idiom: String {
-        return ipad ? "ipad" : "iphone"
+        return platform.rawValue
     }
 
     var all: [AppIcon] {
         return scales.map { AppIcon(baseSize: baseSize, scale: $0) }
     }
 
-    init(baseSize: Float, ipad: Bool = false, scales: [Scale]? = nil) {
+    init(baseSize: Float, platform: Platform, scales: [Scale]? = nil) {
         self.baseSize = baseSize
-        self.ipad = ipad
-        self.scales = scales ?? (ipad ? [.single, .twice] : [.twice, .triple])
+        self.platform = platform
+        self.scales = scales ?? platform.scales
     }
 }
 
 public enum AppIcons: Float {
+    // iPhone
     case notification = 20.0
     case settings = 29.0
     case spotlight = 40.0
-    case app = 60.0
+    case iphoneApp = 60.0
+
+    // iPad
     case iPadApp = 76.0
     case iPadProApp = 83.5
 
-    static func all(ipad: Bool = false) -> [AppIconSet] {
-        return iphones.map { $0.set() } + (ipad ? ipads.map { $0.set(ipad: ipad) } : [])
+    // Mac
+    case macSmall2 = 16.0
+    case macSmall = 32.0
+    case macMedium = 128.0
+    case macLarge = 256.0
+    case macLarge2 = 512.0
+
+    static func all(with platforms: [Platform]) -> [AppIconSet] {
+        return platforms
+            .map { platform -> [AppIconSet] in
+                platform.appIcons.map { $0.set(with: platform) }
+            }
+            .reduce([]) { $0 + $1 }
     }
 
-    private func set(ipad: Bool = false) -> AppIconSet {
+    private func set(with platform: Platform = .iphone) -> AppIconSet {
         let scales = (self == .iPadProApp) ? [Scale.twice] : nil
-        return AppIconSet(baseSize: self.rawValue, ipad: ipad, scales: scales)
-    }
-
-    private static var iphones: [AppIcons] {
-        return [.notification, .settings, .spotlight, .app]
-    }
-
-    private static var ipads: [AppIcons] {
-        return [.notification, .settings, .spotlight, .iPadApp, .iPadProApp]
+        return AppIconSet(baseSize: self.rawValue, platform: platform, scales: scales)
     }
 }

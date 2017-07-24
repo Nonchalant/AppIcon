@@ -9,14 +9,14 @@
 import Foundation
 
 public struct ImageExtractor: Extractor {
-    public typealias T = (base: String, ipad: Bool)
+    public typealias T = (base: String, platforms: [Platform])
     public typealias U = (iconName: String, path: String)
 
     public static func extract(input: T, output: U) throws {
         do {
             try Command.createDirectory(output: output.path).execute()
 
-            for appIconSet in AppIcons.all(ipad: input.ipad) {
+            for appIconSet in AppIcons.all(with: input.platforms) {
                 try extract(input: input, output: output, iconSet: appIconSet)
             }
         } catch {
