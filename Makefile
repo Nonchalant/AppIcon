@@ -4,7 +4,7 @@ OS?=sierra
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
-VERSION?=0.2.2
+VERSION?=0.3.1
 
 build:
 	swift build -c release -Xswiftc -static-stdlib
@@ -30,7 +30,10 @@ bottle: clean build
 	cp INSTALL_RECEIPT.json $(BINARY)/$(VERSION)/INSTALL_RECEIPT.json
 	cp -f $(RELEASE_BINARY_FOLDER) $(BINARY)/$(VERSION)/bin/$(BINARY)
 	tar cfvz $(BINARY)-$(VERSION).$(OS).bottle.tar.gz --exclude='*/.*' $(BINARY)
+	shasum -a 256 $(BINARY)-$(VERSION).$(OS).bottle.tar.gz
 	rm -rf $(BINARY)
 
 sha256:
-	shasum -a 256 $(BINARY)-$(VERSION).$(OS).bottle.tar.gz
+	wget https://github.com/Nonchalant/$(PROJECT)/archive/$(VERSION).tar.gz -O $(PROJECT)-$(VERSION).tar.gz
+	shasum -a 256 $(PROJECT)-$(VERSION).tar.gz
+	rm $(PROJECT)-$(VERSION).tar.gz

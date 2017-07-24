@@ -10,12 +10,12 @@ import Foundation
 import SwiftyJSON
 
 public struct JSONExtractor: Extractor {
-    public typealias T = Bool
+    public typealias T = [Platform]
     public typealias U = (iconName: String, path: String)
 
     public static func extract(input: T, output: U) throws {
         do {
-            try Command.createJSON(json: generate(input: AppIcons.all(ipad: input), iconName: output.iconName), output: "\(output.path)/Contents.json").execute()
+            try Command.createJSON(json: generate(input: AppIcons.all(with: input), iconName: output.iconName), output: "\(output.path)/Contents.json").execute()
         } catch {
             throw LocalError.extraction
         }

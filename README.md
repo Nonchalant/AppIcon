@@ -8,7 +8,7 @@
 ![Swift](https://img.shields.io/badge/Swift-3.1-brightgreen.svg)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
-`AppIcon` generates `*.appiconset` contains each resolution image for iOS.
+`AppIcon` generates `*.appiconset` contains each resolution image for iOS, MacOS.
 
 ```
 AppIcon.appiconset
@@ -65,6 +65,10 @@ Default: `AppIcon`
 Default: `AppIcon`
 
 #### --ipad
+
+Default: false
+
+#### --mac
 
 Default: false
 
