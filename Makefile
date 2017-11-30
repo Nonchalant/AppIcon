@@ -7,7 +7,7 @@ RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
 VERSION?=0.3.2
 
 build:
-	swift build -c release -Xswiftc -static-stdlib
+	swift build --disable-sandbox -c release -Xswiftc -static-stdlib
 
 test:
 	swift test
