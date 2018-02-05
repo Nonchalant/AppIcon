@@ -10,8 +10,8 @@ import Commander
 import AppIconCore
 
 let main = command(Argument<String>("base image (1024x1024.png)", description: "The name of base image"),
-                   Option("icon-name", "AppIcon", description: "The name of generated icon name"),
-                   Option("output-path", "AppIcon", description: "The name of generated appiconset name"),
+                   Option("icon-name", "{AppIcon}-29.0x29.0@2x.png", description: "The name of generated icon name"),
+                   Option("output-path", "{AppIcon}.appiconset", description: "The name of generated appiconset name"),
                    Flag("ipad", description: "Whether or not to generate ipad icon"),
                    Flag("mac", description: "Whether or not to generate mac icon")) { base, iconName, path, ipad, mac in
     guard base.hasSuffix(".png") else {
