@@ -6,14 +6,16 @@
 //
 //
 
-import Commander
 import AppIconCore
+import Commander
 
-let main = command(Argument<String>("base image (1024x1024.png)", description: "The path of base image"),
-                   Option("icon-name", default: "AppIcon", description: "The name of generated image"),
-                   Option("output-path", default: "AppIcon", description: "The path of generated appiconset"),
-                   Flag("ipad", description: "Whether or not to generate ipad icon"),
-                   Flag("mac", description: "Whether or not to generate mac icon")) { base, iconName, path, ipad, mac in
+let main = command(
+    Argument<String>("base image (1024x1024.png)", description: "The path of base image"),
+    Option("icon-name", default: "AppIcon", description: "The name of generated image"),
+    Option("output-path", default: "AppIcon", description: "The path of generated appiconset"),
+    Flag("ipad", description: "Whether or not to generate ipad icon"),
+    Flag("mac", description: "Whether or not to generate mac icon")
+) { base, iconName, path, ipad, mac in
     guard base.hasSuffix(".png") else {
         throw ArgumentError.missingValue(argument: "base image (1024x1024.png)")
     }
@@ -37,4 +39,4 @@ let main = command(Argument<String>("base image (1024x1024.png)", description: "
     print("\(outputPath) is generated 🎉")
 }
 
-main.run()
+main.run("0.33.0")
