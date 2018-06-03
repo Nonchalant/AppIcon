@@ -1,13 +1,8 @@
-fastlane_version "2.30.2"
+fastlane_version "2.96.1"
 
 default_platform :mac
 
 platform :mac do
-  desc "Runs danger"
-  lane :check_pull_request do
-    danger
-  end
-
   desc "Runs release build"
   lane :build do
     Dir.chdir("..") do
