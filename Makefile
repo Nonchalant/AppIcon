@@ -1,10 +1,10 @@
 BINARY?=appicon
 BUILD_FOLDER?=.build
-OS?=sierra
+OS?=high_sierra
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
-VERSION?=0.3.3
+VERSION?=1.0.0
 
 build:
 	swift build -c release -Xswiftc -static-stdlib
