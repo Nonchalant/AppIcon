@@ -1,17 +1,35 @@
+// swift-tools-version:4.0
+
 import PackageDescription
 
 let package = Package(
     name: "AppIcon",
-    targets: [
-        Target(
-            name: "AppIcon",
-            dependencies: ["AppIconCore"]
-        ),
-        Target(name: "AppIconCore")
-    ],
     dependencies: [
-        .Package(url: "https://github.com/kylef/Commander", majorVersion: 0),
-        .Package(url: "https://github.com/kareman/SwiftShell.git", "3.0.0"),
-        .Package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", versions: Version(1, 0, 0)..<Version(3, .max, .max))
+        .package(url: "https://github.com/kylef/Commander", from: "0.8.0"),
+        .package(url: "https://github.com/kareman/SwiftShell.git", "4.0.0"..<"5.0.0"),
+        .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", "4.0.0"..<"5.0.0")
+    ],
+    targets: [
+        .target(
+            name: "AppIcon",
+            dependencies: [
+                "AppIconCore"
+            ]
+        ),
+        .target(
+            name: "AppIconCore",
+            dependencies: [
+                "Commander",
+                "SwiftShell",
+                "SwiftyJSON"
+            ]
+        ),
+        .testTarget(
+            name: "AppIconTests",
+            dependencies: [
+                "AppIconCore"
+            ],
+            path: "Tests"
+        )
     ]
 )
