@@ -39,4 +39,4 @@ let main = command(
     print("\(outputPath) has been generated 🎉")
 }
 
-main.run("1.0.0")
+main.run("1.0.1")
