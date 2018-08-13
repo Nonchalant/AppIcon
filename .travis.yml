@@ -1,12 +1,8 @@
 language: swift
 osx_image: xcode9.3
 
-cache:
-  - bundler
-
 install:
-  - bundle install --path=vendor/bundle
-  - bundle exec fastlane mac build
+  - make build
 
 script:
-  - bundle exec fastlane mac test
+  - make test

@@ -9,10 +9,3 @@
 /*.xcodeproj
 /*.appiconset
 /*.tar.gz
-
-### Fastlane
-
-/.bundle
-/fastlane/report.xml
-/vendor/bundle
-
