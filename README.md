@@ -20,7 +20,8 @@ AppIcon.appiconset
 ├── AppIcon-40.0x40.0@2x.png
 ├── AppIcon-40.0x40.0@3x.png
 ├── AppIcon-60.0x60.0@2x.png
-└── AppIcon-60.0x60.0@3x.png
+├── AppIcon-60.0x60.0@3x.png
+└── AppIcon-1024.0x1024.0@1x.png
 ```
 
 ## Demo
@@ -74,34 +75,28 @@ Default: false
 
 ## Develop
 
-### Install Gems
-
-```
-$ bundle install --path=vendor/bundle
-```
-
 ### Generate Xcode project
-
-```
-$ swift package generate-xcodeproj
-```
-
-or
 
 ```
 $ make xcode
 ```
 
+### Runs debug build
+
+```
+$ make debug
+```
+
 ### Runs release build
 
 ```
-$ bundle exec fastlane build
+$ make build
 ```
 
 ### Runs tests
 
 ```
-$ bundle exec fastlane test
+$ make test
 ```
 
 ## Author
