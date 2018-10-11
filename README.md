@@ -36,6 +36,12 @@ AppIcon.appiconset
 $ brew install Nonchalant/appicon/appicon
 ```
 
+### [Mint](https://github.com/yonaskolb/Mint)
+
+```bash
+$ mint run nonchalant/appicon
+```
+
 ### Manual
 
 Clone the master branch of the repository, then run make install.
