@@ -17,6 +17,7 @@ test:
 
 clean:
 	swift package clean
+	rm -rf DerivedData
 	rm -rf $(BUILD_FOLDER) $(PROJECT).xcodeproj
 
 xcode:
