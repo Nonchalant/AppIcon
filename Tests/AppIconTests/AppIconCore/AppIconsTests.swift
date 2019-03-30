@@ -1,11 +1,3 @@
-//
-//  AppIconsTests.swift
-//  AppIcon
-//
-//  Created by Takeshi Ihara on 2017/05/15.
-//
-//
-
 import Foundation
 import XCTest
 @testable import AppIconCore
