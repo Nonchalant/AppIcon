@@ -1,11 +1,3 @@
-//
-//  ImageExtractor.swift
-//  AppIcon
-//
-//  Created by Takeshi Ihara on 2017/05/10.
-//
-//
-
 import Foundation
 
 public struct ImageExtractor: Extractor {

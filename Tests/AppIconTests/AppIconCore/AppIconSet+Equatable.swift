@@ -1,11 +1,3 @@
-//
-//  AppIconSet+Equatable.swift
-//  AppIcon
-//
-//  Created by Takeshi Ihara on 2017/05/20.
-//
-//
-
 import Foundation
 @testable import AppIconCore
 

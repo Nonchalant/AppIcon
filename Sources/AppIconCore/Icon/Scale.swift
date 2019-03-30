@@ -1,11 +1,3 @@
-//
-//  Scale.swift
-//  AppIcon
-//
-//  Created by Takeshi Ihara on 7/25/17.
-//
-//
-
 import Foundation
 
 enum Scale: String {
