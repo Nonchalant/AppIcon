@@ -1,10 +1,10 @@
 BINARY?=appicon
 BUILD_FOLDER?=.build
-OS?=high_sierra
+OS?=mojave
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
-VERSION?=1.0.1
+VERSION?=1.0.3
 
 debug:
 	swift build
