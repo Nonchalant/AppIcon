@@ -4,8 +4,8 @@
 ![platforms](https://img.shields.io/badge/platforms-iOS-333333.svg)
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Nonchalant/AppIcon/master/LICENSE.md)
 [![GitHub release](https://img.shields.io/github/release/Nonchalant/AppIcon.svg)](https://github.com/Nonchalant/AppIcon/releases)
-![Xcode](https://img.shields.io/badge/Xcode-10.1-brightgreen.svg)
-![Swift](https://img.shields.io/badge/Swift-4.2-brightgreen.svg)
+![Xcode](https://img.shields.io/badge/Xcode-11.3-brightgreen.svg)
+![Swift](https://img.shields.io/badge/Swift-5.1.2-brightgreen.svg)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 `AppIcon` generates `*.appiconset` contains each resolution image for iOS, MacOS.

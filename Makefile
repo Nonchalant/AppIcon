@@ -10,7 +10,7 @@ debug:
 	swift build
 
 build:
-	swift build -c release -Xswiftc -static-stdlib --disable-sandbox
+	swift build -c release --disable-sandbox --disable-package-manifest-caching
 
 test:
 	swift test
