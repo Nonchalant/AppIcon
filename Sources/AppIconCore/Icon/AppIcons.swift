@@ -62,6 +62,15 @@ public enum AppIcons: Float {
     // iPad
     case iPadApp      = 76.0
     case iPadProApp   = 83.5
+    
+    // Watch
+    case watchNotification38 = 24.0
+    case watchNotification40 = 27.5
+    case watchHome40 = 22.0
+    case watchHome44 = 25.0
+    case watchShortLook38 = 43.0
+    case watchShortLook40 = 49.0
+    case watchShortLook44 = 54.0
 
     // Mac
     case macSmall2    = 16.0
