@@ -1,6 +1,6 @@
 BINARY?=appicon
 BUILD_FOLDER?=.build
-OS?=mojave
+OS?=catalina
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
