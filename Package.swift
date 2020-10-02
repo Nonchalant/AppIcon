@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.1
 
 import PackageDescription
 
@@ -8,7 +8,7 @@ let package = Package(
         .executable(name: "AppIcon", targets: ["AppIcon"])
     ],
     dependencies: [
-        .package(url: "https://github.com/kylef/Commander", from: "0.8.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.1"),
         .package(url: "https://github.com/kareman/SwiftShell.git", from: "5.1.0"),
     ],
     targets: [
@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "AppIconCore",
             dependencies: [
-                "Commander",
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 "SwiftShell",
             ]
         ),
