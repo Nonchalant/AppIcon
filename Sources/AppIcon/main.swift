@@ -43,9 +43,9 @@ struct AppIcon: ParsableCommand {
         }
 
         do {
-            try JSONExtractor.extract(input: platforms, output: (iconName, outputPath))
+            try JsonExtractor.extract(input: platforms, output: (iconName, outputPath))
         } catch {
-            print("JSON Extraction Error has occured 😱")
+            print("Json Extraction Error has occured 😱")
             throw ExitCode(1)
         }
 

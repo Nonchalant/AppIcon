@@ -79,6 +79,10 @@ Default: false
 
 Default: false
 
+#### --watch
+
+Default: false
+
 ## Develop
 
 ### Generate Xcode project

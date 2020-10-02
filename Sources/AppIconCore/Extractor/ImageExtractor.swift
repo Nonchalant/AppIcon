@@ -1,14 +1,14 @@
 import Foundation
 
-public struct ImageExtractor: Extractor {
-    public typealias T = (base: String, platforms: [Platform])
+public enum ImageExtractor: Extractor {
+    public typealias T = (base: String, platforms: Set<Platform>)
     public typealias U = (iconName: String, path: String)
 
     public static func extract(input: T, output: U) throws {
         do {
             try Command.createDirectory(output: output.path).execute()
 
-            for appIconSet in AppIcons.all(with: input.platforms) {
+            for appIconSet in AppIconSetGenerator.all(with: input.platforms) {
                 try extract(input: input, output: output, iconSet: appIconSet)
             }
         } catch {
