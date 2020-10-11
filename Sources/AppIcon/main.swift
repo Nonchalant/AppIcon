@@ -1,5 +1,6 @@
 import AppIconCore
 import ArgumentParser
+import Foundation
 
 struct AppIcon: ParsableCommand {
     static let configuration = CommandConfiguration(
@@ -8,7 +9,7 @@ struct AppIcon: ParsableCommand {
         version: "1.0.5"
     )
 
-    @Argument(help: "The path to the base image (1024x1024.png)")
+    @Argument(help: "The path to the base image (1024x1024.png)", completion: .file(extensions: ["png"]))
     var image: String
 
     @Option(help: "The name of the generated image")
@@ -17,18 +18,22 @@ struct AppIcon: ParsableCommand {
     @Option(help: "The path of the generated appiconset")
     var outputPath = "AppIcon"
 
-    @Flag(help: "Whether or not to generate iPad icons")
+    @Flag(help: "Generate also iPad icons")
     var ipad = false
 
-    @Flag(help: "Whether or not to generate Mac icons")
+    @Flag(help: "Generate also Mac icons")
     var mac = false
 
-    @Flag(help: "Whether or not to generate Apple Watch icons")
+    @Flag(help: "Generate also Apple Watch icons")
     var watch = false
 
     func run() throws {
         guard image.hasSuffix(".png") else {
             throw ValidationError("image path should have .png extension")
+        }
+
+        guard FileManager.default.fileExists(atPath: image) else {
+            throw ValidationError("an input image is not exists")
         }
 
         let outputExpansion = ".appiconset"
@@ -38,14 +43,14 @@ struct AppIcon: ParsableCommand {
         do {
             try ImageExtractor.extract(input: (image, platforms), output: (iconName, outputPath))
         } catch {
-            print("Image Extraction Error has occured 😱")
+            print("Image Extraction Error has occurred 😱")
             throw ExitCode(1)
         }
 
         do {
             try JsonExtractor.extract(input: platforms, output: (iconName, outputPath))
         } catch {
-            print("Json Extraction Error has occured 😱")
+            print("Json Extraction Error has occurred 😱")
             throw ExitCode(1)
         }
 
