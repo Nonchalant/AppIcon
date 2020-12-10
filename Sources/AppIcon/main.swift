@@ -28,7 +28,8 @@ struct AppIcon: ParsableCommand {
     var watch = false
 
     func run() throws {
-        guard image.hasSuffix(".png") else {
+        guard let `extension` = image.split(separator: ".").last,
+              `extension`.caseInsensitiveCompare("png") == .orderedSame else {
             throw ValidationError("image path should have .png extension")
         }
 
