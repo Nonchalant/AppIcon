@@ -1,6 +1,6 @@
 BINARY?=appicon
 BUILD_FOLDER?=.build
-OS?=catalina
+OS?=ventura
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
