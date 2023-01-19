@@ -1,20 +1,22 @@
 import Foundation
 
 struct AppIcon: Hashable {
-    let baseSize: Float
+    let name: String
+    let platform: Platform
     let scale: Scale
+    let size: Float
 }
 
 extension AppIcon {
-    func name(iconName: String) -> String {
-        return "\(iconName)-\(baseSize)x\(baseSize)@\(scale.rawValue).png"
+    var scaleSize: Float {
+        size * scale.magnification
     }
 
-    var size: Float {
-        baseSize * scale.magnification
+    var scaleForJson: String? {
+        platform.isSingleTrimmed && (scale == ._1x) ? nil : scale.rawValue
     }
 
     var baseSizeStr: String {
-        return (baseSize == round(baseSize)) ? String(format: "%.f", baseSize) : "\(baseSize)"
+        (size == round(size)) ? String(format: "%.f", size) : "\(size)"
     }
 }

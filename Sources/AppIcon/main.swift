@@ -39,17 +39,17 @@ struct AppIcon: ParsableCommand {
 
         let outputExpansion = ".appiconset"
         let outputPath = self.outputPath.hasSuffix(outputExpansion) ? self.outputPath : "\(self.outputPath)\(outputExpansion)"
-        let platforms = Platform.platforms(ipad: ipad, mac: mac, watch: watch)
+        let platform = Platform(mac: mac, watch: watch)
 
         do {
-            try ImageExtractor.extract(input: (image, platforms), output: (iconName, outputPath))
+            try ImageExtractor.extract(base: image, output: outputPath, iconName: iconName, platform: platform)
         } catch {
             print("Image Extraction Error has occurred 😱")
             throw ExitCode(1)
         }
 
         do {
-            try JsonExtractor.extract(input: platforms, output: (iconName, outputPath))
+            try JsonExtractor.extract(output: outputPath, iconName: iconName, platform: platform)
         } catch {
             print("Json Extraction Error has occurred 😱")
             throw ExitCode(1)
