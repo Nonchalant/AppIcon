@@ -6,7 +6,7 @@ struct AppIcon: ParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "appicon",
         abstract: "AppIcon generates *.appiconset contains each resolution image for iOS",
-        version: "1.0.5"
+        version: "1.0.6"
     )
 
     @Argument(help: "The path to the base image (1024x1024.png)", completion: .file(extensions: ["png"]))

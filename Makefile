@@ -4,7 +4,7 @@ OS?=catalina
 PREFIX?=/usr/local
 PROJECT?=AppIcon
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
-VERSION?=1.0.5
+VERSION?=1.0.6
 
 debug:
 	swift build
