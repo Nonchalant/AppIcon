@@ -13,7 +13,7 @@ let package = Package(
         .package(url: "https://github.com/akkyie/Tablier", from: "0.2.0")
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "AppIcon",
             dependencies: [
                 "AppIconCore"
@@ -31,8 +31,7 @@ let package = Package(
             dependencies: [
                 "AppIconCore",
                 "Tablier"
-            ],
-            path: "Tests"
+            ]
         )
     ]
 )

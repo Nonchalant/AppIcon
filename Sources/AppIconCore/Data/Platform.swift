@@ -1,70 +1,67 @@
-public enum Platform {
-    case iphone
-    case iosMarketing
-    case ipad
+public enum Platform: Equatable {
+    case ios
     case mac
     case watch
-    case watchMarketing
 }
 
 extension Platform {
-    public static func platforms(ipad: Bool, mac: Bool, watch: Bool) -> Set<Platform> {
-        var platforms: [Platform] = []
+    public init(mac: Bool, watch: Bool) {
+        if mac {
+            self = .mac
+        } else if watch {
+            self = .watch
+        } else {
+            self = .ios
+        }
+    }
 
-        platforms += ipad ? [.iphone, .ipad, .iosMarketing] : []
-        platforms += mac ? [.mac] : [.iphone, .iosMarketing]
-        platforms += watch ? [.watch, .watchMarketing] : []
+    func icons(iconName: String) -> Set<AppIcon> {
+        let icons: [AppIconSet] = {
+            switch self {
+            case .ios:
+                return IosAppIconSet.allCases
+            case .mac:
+                return MacAppIconSet.allCases
+            case .watch:
+                return WatchAppIconSet.allCases
+            }
+        }()
 
-        return Set(platforms)
+        return Set(
+            icons
+                .map { $0.icons(iconName: iconName) }
+                .flatMap { $0 }
+        )
     }
 }
 
 extension Platform {
     var idiom: String {
         switch self {
-        case .iphone:
-            return "iphone"
-        case .iosMarketing:
-            return "ios-marketing"
-        case .ipad:
-            return "ipad"
+        case .ios, .watch:
+            return "universal"
         case .mac:
             return "mac"
-        case .watch:
-            return "watch"
-        case .watchMarketing:
-            return "watch-marketing"
         }
     }
 
-    var scales: Set<Scale> {
+    var rawValue: String? {
         switch self {
-        case .iphone,
-             .watch:
-            return Set([.twice, .triple])
-        case .iosMarketing,
-             .watchMarketing:
-            return Set([.single])
-        case .ipad,
-             .mac:
-            return Set([.single, .twice])
-        }
-    }
-
-    var appIconSets: [AppIconSetType] {
-        switch self {
-        case .iphone:
-            return AppIconIphoneSet.allCases
-        case .iosMarketing:
-            return AppIconIosMarketingSet.allCases
-        case .ipad:
-            return AppIconIpadSet.allCases
+        case .ios:
+            return "ios"
         case .mac:
-            return AppIconMacSet.allCases
+            return nil
         case .watch:
-            return AppIconWatchSet.allCases
-        case .watchMarketing:
-            return AppIconWatchMarketingSet.allCases
+            return "watchos"
+        }
+    }
+
+    var isSingleTrimmed: Bool {
+        switch self {
+        case .ios, .mac:
+            return false
+        case .watch:
+            return true
         }
     }
 }

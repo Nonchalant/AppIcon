@@ -1,30 +1,34 @@
 import Foundation
 
-public enum JsonExtractor: Extractor {
-    public typealias T = Set<Platform>
-    public typealias U = (iconName: String, path: String)
-
-    public static func extract(input: T, output: U) throws {
+public enum JsonExtractor {
+    public static func extract(
+        output: String,
+        iconName: String,
+        platform: Platform
+    ) throws {
         do {
-            try Command.createJSON(json: generate(input: AppIconSetGenerator.all(with: input), iconName: output.iconName), output: "\(output.path)/Contents.json").execute()
+            let icons = platform.icons(iconName: iconName)
+            try Command
+                .createJSON(
+                    json: generate(icons: icons),
+                    output: "\(output)/Contents.json"
+                )
+                .execute()
         } catch {
             throw LocalError.extraction
         }
     }
 
-    private static func generate(input: [AppIconSet], iconName: String) -> String {
-        let images = input.map { iconSet -> [ContentsJson.Image] in
-            iconSet.all.map {
-                ContentsJson.Image(
-                    filename: $0.name(iconName: iconName),
-                    idiom: iconSet.idiom,
-                    role: iconSet.role,
-                    scale: $0.scale.rawValue,
-                    size: "\($0.baseSizeStr)x\($0.baseSizeStr)",
-                    subtype: iconSet.subtype
-                )
-            }
-        }.flatMap { $0 }
+    private static func generate(icons: Set<AppIcon>) -> String {
+        let images = icons.map { icon in
+            ContentsJson.Image(
+                filename: icon.name,
+                idiom: icon.platform.idiom,
+                platform: icon.platform.rawValue,
+                scale: icon.scaleForJson,
+                size: "\(icon.baseSizeStr)x\(icon.baseSizeStr)"
+            )
+        }
 
         let json = ContentsJson(
             images: images,

@@ -1,24 +1,35 @@
 import Foundation
 
-public enum ImageExtractor: Extractor {
-    public typealias T = (base: String, platforms: Set<Platform>)
-    public typealias U = (iconName: String, path: String)
-
-    public static func extract(input: T, output: U) throws {
+public enum ImageExtractor {
+    public static func extract(
+        base: String,
+        output: String,
+        iconName: String,
+        platform: Platform
+    ) throws {
         do {
-            try Command.createDirectory(output: output.path).execute()
+            try Command.createDirectory(output: output).execute()
 
-            for appIconSet in AppIconSetGenerator.all(with: input.platforms) {
-                try extract(input: input, output: output, iconSet: appIconSet)
-            }
+            let icons = platform.icons(iconName: iconName)
+            try extract(base: base, output: output, icons: icons)
         } catch {
             throw LocalError.extraction
         }
     }
 
-    private static func extract(input: T, output: U, iconSet: AppIconSet) throws {
-        for icon in iconSet.all {
-            try Command.extractImage(base: input.base, output: "\(output.path)/\(icon.name(iconName: output.iconName))", size: icon.size).execute()
+    private static func extract(
+        base: String,
+        output: String,
+        icons: Set<AppIcon>
+    ) throws {
+        for icon in icons {
+            try Command
+                .extractImage(
+                    base: base,
+                    output: "\(output)/\(icon.name)",
+                    size: icon.scaleSize
+                )
+                .execute()
         }
     }
 }
