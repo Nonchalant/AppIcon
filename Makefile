@@ -18,10 +18,7 @@ test:
 clean:
 	swift package clean
 	rm -rf DerivedData
-	rm -rf $(BUILD_FOLDER) $(PROJECT).xcodeproj
-
-xcode:
-	swift package generate-xcodeproj
+	rm -rf $(BUILD_FOLDER)
 
 install: build
 	mkdir -p $(PREFIX)/bin
