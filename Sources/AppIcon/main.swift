@@ -18,9 +18,6 @@ struct AppIcon: ParsableCommand {
     @Option(help: "The path of the generated appiconset")
     var outputPath = "AppIcon"
 
-    @Flag(help: "Generate also iPad icons")
-    var ipad = false
-
     @Flag(help: "Generate also Mac icons")
     var mac = false
 

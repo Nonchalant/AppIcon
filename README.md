@@ -71,10 +71,6 @@ Default: `AppIcon`
 
 Default: `./AppIcon.appiconset`
 
-#### --ipad
-
-Default: false
-
 #### --mac
 
 Default: false
